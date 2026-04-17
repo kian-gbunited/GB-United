@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GB United — Sherman Oaks Youth Soccer Club</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .hero {
+    min-height: 100vh;
+    background: var(--dark);
+    display: flex;
+    align-items: center;
+    padding: 120px 5% 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: 'GB';
+    position: absolute;
+    right: -2%;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(200px, 30vw, 420px);
+    color: rgba(255,255,255,0.03);
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .hero-content { max-width: 700px; position: relative; z-index: 2; }
+
+  .hero-eyebrow {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(56px, 9vw, 120px);
+    line-height: 0.92;
+    color: var(--white);
+    margin-bottom: 28px;
+    animation: fadeUp 0.6s 0.1s ease both;
+  }
+
+  .hero h1 span { color: var(--red); }
+
+  .hero-sub {
+    font-size: 18px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.6;
+    max-width: 500px;
+    margin-bottom: 44px;
+    animation: fadeUp 0.6s 0.2s ease both;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    animation: fadeUp 0.6s 0.3s ease both;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 48px;
+    margin-top: 72px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    animation: fadeUp 0.6s 0.4s ease both;
+    flex-wrap: wrap;
+  }
+
+  .stat-val {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 42px;
+    color: var(--white);
+    line-height: 1;
+  }
+
+  .stat-val span { color: var(--red); }
+  .stat-lbl {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-top: 4px;
+  }
+
+  /* ABOUT STRIP */
+  #about {
+    background: var(--off);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .about-right {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+  }
+
+  .about-tile {
+    background: var(--white);
+    padding: 28px 24px;
+  }
+
+  .about-tile-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    color: var(--red);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .about-tile h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+
+  .about-tile p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+  .about-tile.accent { background: var(--red); }
+  .about-tile.accent .about-tile-num,
+  .about-tile.accent h3,
+  .about-tile.accent p { color: var(--white); }
+
+  /* LAFC EVENT */
+  #event {
+    background: var(--navy);
+    padding: 96px 5%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .event-left .section-tag { color: var(--gold); }
+  .event-left .section-title { color: var(--white); }
+  .event-left .section-body { color: rgba(255,255,255,0.5); margin-bottom: 32px; }
+
+  .event-right {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 48px 40px;
+    text-align: center;
+  }
+
+  .event-date-tag {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+
+  .event-matchup {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 52px;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .event-matchup span { color: var(--red); }
+
+  .event-venue {
+    font-size: 13px;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 28px;
+    letter-spacing: 0.05em;
+  }
+
+  .event-highlight {
+    background: rgba(204,24,24,0.15);
+    border-left: 3px solid var(--red);
+    padding: 14px 18px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.6;
+    text-align: left;
+    margin-bottom: 28px;
+  }
+
+  /* CTA STRIP */
+  .cta-strip {
+    background: var(--red);
+    padding: 64px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+
+  .cta-strip h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(28px, 4vw, 48px);
+    color: var(--white);
+  }
+
+  .cta-strip p {
+    font-size: 15px;
+    color: rgba(255,255,255,0.75);
+    margin-top: 4px;
+  }
+
+  .btn-white {
+    display: inline-block;
+    background: var(--white);
+    color: var(--red);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 16px 32px;
+    transition: background 0.2s;
+    white-space: nowrap;
+  }
+
+  .btn-white:hover { background: var(--off); }
+
+  @media (max-width: 768px) {
+    #about, #offer .offer-grid, #event {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    .about-right { grid-template-columns: 1fr 1fr; }
+    .offer-grid { grid-template-columns: 1fr; }
+    .hero-stats { gap: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="logo.png" alt="GB United">
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="teams.html">Teams</a></li>
+    <li><a href="training.html">Training</a></li>
+    <li><a href="store.html">Store</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="hamburger" onclick="toggleNav()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">Sherman Oaks, Los Angeles</div>
+    <h1>We Are<br><span>GB United.</span></h1>
+    <p class="hero-sub">Competitive youth soccer built on development, professional coaching, and club culture that goes beyond the game.</p>
+    <div class="hero-ctas">
+      <a href="contact.html" class="btn-primary">Join the club</a>
+      <a href="teams.html" class="btn-outline">Our teams</a>
+    </div>
+    <div class="hero-stats">
+
+      <div>
+        <div class="stat-val">7<span>–</span>17</div>
+        <div class="stat-lbl">Ages served</div>
+      </div>
+      <div>
+        <div class="stat-val">2<span>x</span></div>
+        <div class="stat-lbl">Weekly training</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="about-left">
+    <div class="section-tag">Who we are</div>
+    <h2 class="section-title">Built for players who want more.</h2>
+    <p class="section-body">GB United is a competitive youth soccer club based in Sherman Oaks, Los Angeles. We give players a club home where development comes first, with professional coaching, position specific training programs, and a club culture families are proud to be part of.<br><br>We compete in the Coast Soccer League across boys and girls age groups, with two training sessions per week, individual player reviews, and a full year of competitive soccer.</p>
+  </div>
+  <div class="about-right">
+    <div class="about-tile">
+      <div class="about-tile-num">CSL</div>
+      <h3>League play</h3>
+      <p>Coast Soccer League competition across multiple age groups.</p>
+    </div>
+    <div class="about-tile accent">
+      <div class="about-tile-num">2x</div>
+      <h3>Weekly training</h3>
+      <p>Structured sessions twice per week with professional coaches.</p>
+    </div>
+    <div class="about-tile">
+      <div class="about-tile-num">GK+ST</div>
+      <h3>Position specific training</h3>
+      <p>Dedicated goalkeeper and striker training bi-weekly.</p>
+    </div>
+    <div class="about-tile">
+      <div class="about-tile-num">📋</div>
+      <h3>Player reviews</h3>
+      <p>Individual coach feedback and development reports every season.</p>
+    </div>
+  </div>
+</section>
+
+
+
+<section id="event">
+  <div class="event-left">
+    <div class="section-tag">Club events</div>
+    <h2 class="section-title">Beyond the pitch.</h2>
+    <p class="section-body">Club culture is built in moments like these. GB United brings players together for experiences that go beyond the weekly grind.</p>
+    <a href="contact.html" class="btn-primary">Get tickets info</a>
+  </div>
+  <div class="event-right">
+    <div class="event-date-tag">Saturday, July 25, 2025</div>
+    <div class="event-matchup"><span>LAFC</span> vs<br>Sporting KC</div>
+    <div class="event-venue">BMO Stadium · Los Angeles</div>
+    <a href="contact.html" class="btn-primary">Contact us for tickets</a>
+  </div>
+</section>
+
+<div class="cta-strip">
+  <div>
+    <h2>Tryouts are open for 2025–26.</h2>
+    <p>Boys & Girls · Ages 7–17 · Sherman Oaks, Los Angeles</p>
+  </div>
+  <a href="contact.html" class="btn-white">Get in touch</a>
+</div>
+
+<footer>
+  <div class="footer-logo">
+    <img src="logo.png" alt="GB United">
+  </div>
+  <ul class="footer-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="teams.html">Teams</a></li>
+    <li><a href="training.html">Training</a></li>
+    <li><a href="store.html">Store</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="https://instagram.com/gbunited_" target="_blank">Instagram</a></li>
+  </ul>
+  <span class="footer-copy">© 2025 GB United Soccer Club</span>
+</footer>
+
+<script>
+function toggleNav() {
+  document.getElementById('navLinks').classList.toggle('open');
+}
+</script>
+</body>
+</html>
