@@ -22,13 +22,10 @@
     margin-bottom: 32px;
   }
 
-  .staff-label.specialist { background: var(--red); }
-
   .staff-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 2px;
-    margin-bottom: 64px;
   }
 
   .staff-card {
@@ -41,6 +38,7 @@
     width: 100%;
     aspect-ratio: 1/1;
     object-fit: cover;
+    object-position: center top;
     display: block;
   }
 
@@ -63,16 +61,10 @@
     color: var(--muted);
   }
 
-  .staff-photo-placeholder svg {
-    opacity: 0.25;
-  }
-
   .staff-info {
     padding: 18px 20px;
     border-top: 3px solid var(--navy);
   }
-
-  .staff-card.specialist .staff-info { border-top-color: var(--red); }
 
   .staff-name {
     font-family: 'Bebas Neue', sans-serif;
@@ -88,28 +80,8 @@
     font-weight: 400;
   }
 
-  .specialist-card .staff-photo {
-    width: 100%;
-  }
-
-  .specialist-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(200px, 320px));
-    gap: 2px;
-    margin-bottom: 32px;
-  }
-
-  .specialist-card {
-    background: var(--white);
-    display: flex;
-    flex-direction: column;
-  }
-
-  .specialist-card .staff-info { border-top-color: var(--red); }
-
   @media (max-width: 768px) {
     .staff-grid { grid-template-columns: repeat(2, 1fr); }
-    .specialist-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -135,10 +107,10 @@
 </div>
 
 <section class="staff-section">
-
-  <div class="staff-label">Coaching Staff</div>
+  <div class="staff-label">GB United Staff</div>
   <div class="staff-grid">
 
+    <!-- 1. Kian Kohan -->
     <div class="staff-card">
       <div class="staff-photo-placeholder">
         <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="14" r="8" fill="#999"/><path d="M4 36c0-8.837 7.163-16 16-16s16 7.163 16 16" fill="#999"/></svg>
@@ -146,10 +118,18 @@
       </div>
       <div class="staff-info">
         <div class="staff-name">Kian Kohan</div>
-        <div class="staff-role">Director of Coaching</div>
       </div>
     </div>
 
+    <!-- 2. Thomas Elliott -->
+    <div class="staff-card">
+      <img src="thomas.jpg" alt="Thomas Elliott" class="staff-photo">
+      <div class="staff-info">
+        <div class="staff-name">Thomas Elliott</div>
+      </div>
+    </div>
+
+    <!-- 3. David Rosenblatt -->
     <div class="staff-card">
       <div class="staff-photo-placeholder">
         <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="14" r="8" fill="#999"/><path d="M4 36c0-8.837 7.163-16 16-16s16 7.163 16 16" fill="#999"/></svg>
@@ -157,10 +137,10 @@
       </div>
       <div class="staff-info">
         <div class="staff-name">David Rosenblatt</div>
-        <div class="staff-role">Coach</div>
       </div>
     </div>
 
+    <!-- 4. Andrew Vasquez -->
     <div class="staff-card">
       <div class="staff-photo-placeholder">
         <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="14" r="8" fill="#999"/><path d="M4 36c0-8.837 7.163-16 16-16s16 7.163 16 16" fill="#999"/></svg>
@@ -168,10 +148,10 @@
       </div>
       <div class="staff-info">
         <div class="staff-name">Andrew Vasquez</div>
-        <div class="staff-role">Coach</div>
       </div>
     </div>
 
+    <!-- 5. Marlon Ollivierre -->
     <div class="staff-card">
       <div class="staff-photo-placeholder">
         <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="14" r="8" fill="#999"/><path d="M4 36c0-8.837 7.163-16 16-16s16 7.163 16 16" fill="#999"/></svg>
@@ -179,10 +159,10 @@
       </div>
       <div class="staff-info">
         <div class="staff-name">Marlon Ollivierre</div>
-        <div class="staff-role">Coach</div>
       </div>
     </div>
 
+    <!-- 6. Michael Byerts -->
     <div class="staff-card">
       <div class="staff-photo-placeholder">
         <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="14" r="8" fill="#999"/><path d="M4 36c0-8.837 7.163-16 16-16s16 7.163 16 16" fill="#999"/></svg>
@@ -190,10 +170,10 @@
       </div>
       <div class="staff-info">
         <div class="staff-name">Michael Byerts</div>
-        <div class="staff-role">Coach</div>
       </div>
     </div>
 
+    <!-- 7. Jason Betley -->
     <div class="staff-card">
       <div class="staff-photo-placeholder">
         <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="14" r="8" fill="#999"/><path d="M4 36c0-8.837 7.163-16 16-16s16 7.163 16 16" fill="#999"/></svg>
@@ -201,10 +181,10 @@
       </div>
       <div class="staff-info">
         <div class="staff-name">Jason Betley</div>
-        <div class="staff-role">Coach</div>
       </div>
     </div>
 
+    <!-- 8. Jason Villar -->
     <div class="staff-card">
       <div class="staff-photo-placeholder">
         <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="14" r="8" fill="#999"/><path d="M4 36c0-8.837 7.163-16 16-16s16 7.163 16 16" fill="#999"/></svg>
@@ -212,33 +192,18 @@
       </div>
       <div class="staff-info">
         <div class="staff-name">Jason Villar</div>
-        <div class="staff-role">Coach</div>
       </div>
     </div>
 
-  </div>
-
-  <div class="staff-label specialist">Position Specific Coaches</div>
-  <div class="specialist-grid">
-
-    <div class="staff-card specialist">
+    <!-- 9. Aidan Feuer -->
+    <div class="staff-card">
       <img src="aidan.jpg" alt="Aidan Feuer" class="staff-photo">
       <div class="staff-info">
         <div class="staff-name">Aidan Feuer</div>
-        <div class="staff-role">Goalkeeper Coach</div>
-      </div>
-    </div>
-
-    <div class="staff-card specialist">
-      <img src="thomas.jpg" alt="Thomas Elliott" class="staff-photo">
-      <div class="staff-info">
-        <div class="staff-name">Thomas Elliott</div>
-        <div class="staff-role">Striker Coach</div>
       </div>
     </div>
 
   </div>
-
 </section>
 
 <footer>
